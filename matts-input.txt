@@ -1,0 +1,56 @@
+﻿
+using System;
+namespace Practice
+{
+	public class Player
+	{
+
+            Element element;
+        Element op;
+
+
+        public Player(Element el, Element opposition)
+            {
+                element = el;
+                op = opposition;
+            }
+
+            public void Play(Board board)
+        {
+        
+            var a = Console.ReadLine();
+            if (a == "topleft")
+            {
+                
+                if (board.grid[0, 0] == op)
+                {
+                    Console.WriteLine("Not an empty space");
+                }
+                else
+                {
+                    board.grid[0, 0] = element;
+                }
+            }
+}
+}
+
+var playerX = new Player(Element.X, Element.O);
+var playerO = new Player(Element.O, Element.X);
+
+playerX.Play(board);
+
+
+/* [ 
+    *   [0,0,0,1,0,2]
+    *   [0,0,0,1,0,2]
+    * ]
+    * 
+    * for(var win in winConditions)
+    * {
+    *  var xWin = Start.grid[win[0], win[1]] == Element.X && Start.grid[win[2],win[3]] == Element.X && Start.grid[win[4],win[5]] == Element.X
+    *  var oWin = Start.grid[win[0], win[1]] == Element.X && Start.grid[win[2],win[3]] == Element.X && Start.grid[win[4],win[5]] == Element.O
+    *  
+    *  if(xWin) Console.WritelIne("X Has won")
+    *  if(oWin) Console.WritelIne("O Has won")
+    * }
+    */
